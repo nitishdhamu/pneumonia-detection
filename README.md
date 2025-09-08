@@ -10,7 +10,7 @@ It includes training, evaluation, explainability (Grad-CAM), a FastAPI backend, 
 ## 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/pneumonia-detection.git
+git clone https://github.com/nitishdhamu/pneumonia-detection.git
 cd pneumonia-detection
 ```
 
