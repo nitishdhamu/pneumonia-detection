@@ -10,9 +10,10 @@ class TrainConfig:
     epochs: int = 5
     lr: float = 3e-4
     weight_decay: float = 1e-4
-    loss: str = "bce"   # "bce" or "focal"
+    loss: str = "bce"
     seed: int = 42
     num_workers: int = 2
+    early_stop_patience: int = 2
 
 @dataclass
 class ServeConfig:
