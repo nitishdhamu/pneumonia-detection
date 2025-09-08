@@ -1,17 +1,25 @@
-# Pneumonia Detection from Chest X-Rays (PyTorch)
+# Pneumonia Detection from Chest X-Rays (DenseNet-121, PyTorch)
 
 ⚠️ **For research & education only – not for clinical use.**
 
-This project provides a **simplified deep learning pipeline** for pneumonia detection from chest X-ray (CXR) images.  
+This project provides a complete deep learning pipeline for pneumonia detection from chest X-ray (CXR) images.  
 It includes training, evaluation, explainability (Grad-CAM), a FastAPI backend, and a Streamlit UI.  
-This minor project is designed to be lightweight and CPU-friendly.
+
+---
+
+## 📥 Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/pneumonia-detection.git
+cd pneumonia-detection
+```
 
 ---
 
 ## 📂 Dataset Setup
 
 We use the **Kaggle Chest X-Ray Images (Pneumonia)** dataset:  
-🔗 https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+🔗 [https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
 
 After downloading, extract and place it in:
 
@@ -60,8 +68,8 @@ Run training:
 python -m backend.train
 ```
 
-- Default: **DenseNet-121**, **5 epochs** (configurable), trained on CPU.  
-- Checkpoints and logs are saved in `outputs/`.
+- Default: **DenseNet-121**, 5 epochs.  
+- Checkpoints and plots are saved in `outputs/`.
 
 ---
 
@@ -75,8 +83,8 @@ python -m backend.evaluate
 
 Outputs saved in `outputs/`:
 - `test_metrics.json` with Accuracy, Precision, Recall, F1, ROC-AUC, PR-AUC  
-- Confusion matrix values  
 - ROC and PR curves  
+- Confusion matrix  
 - Training history plots  
 
 ---
@@ -91,7 +99,7 @@ python -m backend.api
 
 Endpoints:
 - `GET /health` → service status  
-- `POST /predict` → predict on one image (multipart file upload)
+- `POST /predict` → predict on one image  
 
 Docs available at: [http://localhost:8000/docs](http://localhost:8000/docs)
 
@@ -106,10 +114,11 @@ streamlit run frontend/streamlit_app.py
 ```
 
 Features:
-- Upload image(s) (PNG/JPG)  
+- Drag & drop image upload (PNG/JPG)  
 - Prediction label + confidence  
 - Grad-CAM overlay visualization  
-- Batch prediction support  
+- Batch inference support  
+- Metrics dashboard (loss/accuracy, ROC, PR curves)  
 
 ---
 
@@ -125,22 +134,22 @@ Features:
 
 - ROC-AUC ≥ 0.90 on held-out test set  
 - Grad-CAM highlights plausible lung regions  
-- Lightweight structure for easier reproducibility
+- Lightweight structure compared to major project  
 
 ---
 
 ## 👨‍💻 Author
 
-This project was developed by Nitish Dhamu as part of the Minor Project.  
+This project was developed by **Nitish Dhamu** as part of the Minor Project.
 
 ---
 
 ## ⚖️ Notes
 
 - Dataset is pediatric; may not generalize to adults.  
-- Labels are folder-based and may include some noise.  
+- Folder-based labels can include some noise.  
 - No PHI is collected or stored.  
-- Disclaimer shown: *Not for diagnostic use*.
+- Disclaimer shown: *Not for diagnostic use*.  
 
 ---
 
