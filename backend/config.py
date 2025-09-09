@@ -7,13 +7,13 @@ class TrainConfig:
     model_name: str = "densenet121"
     img_size: int = 224
     batch_size: int = 32
-    epochs: int = 5
+    epochs: int = 5   # reduced for minor project
     lr: float = 3e-4
     weight_decay: float = 1e-4
-    loss: str = "bce"
+    loss: str = "bce"   # "bce" or "focal"
     seed: int = 42
-    num_workers: int = 2
-    early_stop_patience: int = 2
+    num_workers: int = 0   # safer for Windows
+    early_stop_patience: int = 1  # stop after 1 epoch with no improvement
 
 @dataclass
 class ServeConfig:

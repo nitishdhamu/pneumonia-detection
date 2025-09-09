@@ -2,8 +2,7 @@ import os
 import requests
 import streamlit as st
 
-# Replace 'Your Full Name' with your actual full name if you want it shown in the UI footer.
-AUTHOR_NAME = "Your Full Name"
+AUTHOR_NAME = "Nitish Dhamu"
 
 API = os.environ.get("API_URL", "http://localhost:8000")
 
@@ -43,10 +42,11 @@ if st.button("Predict", disabled=not uploaded_files):
             # Display Grad-CAM from backend static path (backend serves /static/*.png)
             gradcam_path = f"{API}{result['gradcam_url']}"
             try:
-                st.image(gradcam_path, caption="Grad-CAM Overlay", use_column_width=True)
+                # NOTE: use_container_width replaces deprecated use_column_width
+                st.image(gradcam_path, caption="Grad-CAM Overlay", use_container_width=True)
             except Exception:
                 # Fallback: show message if image can't be loaded from URL
                 st.info(f"Grad-CAM saved at: {result['gradcam_url']} (served by backend)")
 
 st.markdown("---")
-st.caption(f"👨‍💻 Developed by Nitish Dhamu")
+st.caption(f"👨‍💻 Developed by {AUTHOR_NAME}")
